@@ -3,17 +3,21 @@
 JP Post Zipcode Plugin for CakePHP.
 
 Zipcode Pluginは日本郵便の郵便番号のデータを活用するCakePHPプラグインです。
+
 郵便番号データ取得と、実際に検索するためのいくつかのインターフェースを提供します。
 
 ## インストール ##
 
 app/plugins以下に、ダウンロードした圧縮ファイルをzipcodeディレクトリとして展開・設置してください。
+
 いつものCakePHPプラグインの設置と同様です。
 
 ## セットアップ ##
 
 Zipcode Pluginを利用する前に、たった2つですが手続きを踏む必要があります。
+
 それは「.1郵便番号用テーブルの作成」と「2.郵便番号データのインポート」です。
+
 それぞれにcakeコマンドを用意しているので安心してください。
 
 ### 0.準備 ###
@@ -77,14 +81,19 @@ Zipcode PluginではAjax等で利用するためのHTTPインターフェース�
 * ajaxzip3 (JSONP) (/zipcode/api/ajaxzip3/zip-812.js)
 
 郵便番号検索のJavaScriptライブラリは [ajaxzip3](http://code.google.com/p/ajaxzip3/) が非常に素晴らしく、基本的にはそれで十分です。
+
 しかし、様々な理由で外部URLにリクエストを投げることができないことがあります。
+
 その時にajaxzip3から、わずかな変更で内部の郵便番号データでの郵便番号検索に変更できます。
+
 詳しくは ```views/elements/ajaxzip3.ctp``` を確認してください。
 
 ### 2.Zipcodeモデルを直接利用する検索 ###
 
 Zipcode::search()を直接利用して前方一致の郵便番号検索ができます。
+
 また、直接find()をしてもいいかもしれません。
+
 詳しくは ```models/zipcode.php``` を確認してください。
 
 # TODO #
