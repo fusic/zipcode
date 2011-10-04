@@ -1,4 +1,4 @@
-# Zipcode Plugin for CakePHP #
+# Zipcode Plugin for CakePHP2.0.0-RC2 #
 
 JP Post Zipcode Plugin for CakePHP.
 
@@ -8,7 +8,7 @@ Zipcode Pluginは日本郵便の郵便番号のデータを活用するCakePHP�
 
 ## インストール ##
 
-app/plugins以下に、ダウンロードした圧縮ファイルをzipcodeディレクトリとして展開・設置してください。
+app/Plugin以下に、ダウンロードした圧縮ファイルをZipcodeディレクトリとして展開・設置してください。
 
 いつものCakePHPプラグインの設置と同様です。
 
@@ -34,7 +34,7 @@ Zipcode Pluginを利用する前に、たった2つですが手続きを踏む�
 
 schemaコマンドを使用する場合
 
-    $ cake schema create Zipcode -path app/plugins/zipcode/schema
+    $ cake schema create Zipcode --path app/Plugin/Zipcode/Config/Schema
 
 SQLでテーブルを生成する場合
 
@@ -64,7 +64,7 @@ SQLでテーブルを生成する場合
 
 ### 2.郵便番号データをインポート ###
 
-    $ cake zipcode_import
+    $ cake Zipcode.zipcode_import
 
 メニューが表示されるので「1.KEN_ALL.CSVを取得」「2.郵便番号データをインポート」の順番に実行して下さい。
 
