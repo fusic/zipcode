@@ -1,9 +1,11 @@
 <?php
-class Zipcode extends ZipcodeAppModel {
-    var $name = 'Zipcode';
-    var $displayField = 'zip';
+App::uses('ZipcodeAppModel', 'Zipcode.Model');
 
-    function search($type = 'all', $zipcode, $limit = 10) {
+class Zipcode extends ZipcodeAppModel {
+    public $name = 'Zipcode';
+    public $displayField = 'zip';
+
+    public function search($type = 'all', $zipcode, $limit = 10) {
         if ( $zipcode === null ) {
             return false;
         }
@@ -32,7 +34,7 @@ class Zipcode extends ZipcodeAppModel {
         return $data;
     }
 
-    function beforeSave($options = array()) {
+    public function beforeSave($options = array()) {
 
         if ( empty($this->data[$this->alias]['pref_id']) && !empty($this->data[$this->alias]['jis']) ) {
             $this->data[$this->alias]['pref_id'] = (int)substr($this->data[$this->alias]['jis'], 0, 2);

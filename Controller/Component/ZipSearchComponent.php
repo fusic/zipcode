@@ -1,10 +1,10 @@
 <?php
-class ZipSearchComponent extends Object {
+class ZipSearchComponent extends Component {
     
     var $Zipcode = array();
     var $_controller = array();
 
-	function initialize(&$controller, $settings = array()) {
+	function initialize($controller, $settings = array()) {
         $this->_controller = $controller;
         $this->Zipcode = ClassRegistry::init('Zipcode.Zipcode');
 	}

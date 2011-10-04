@@ -4,14 +4,16 @@
  * ajaxzip3が呼び出されている前提で下記を記述することで外部URL(ajaxzip3のJSONP URL)からZipcode PluginのAPIを利用する形に変更されます。
  *
     echo $this->element('ajaxzip3', array(              // エレメント名
-            'plugin'=>'Zipcode',                        // プラグイン名
             'zipcode_id' => 'zip',                      // 郵便番号TEXTBOXのID
             'pref' => 'data[Address][pref_id]',         // 都道府県のname
             'address' => 'data[Address][address1]',     // 住所1のname
             'keyup' => true                             // jQueryによるkeyUpイベントの自動付与
+        ),
+        array(
+            'plugin'=>'Zipcode',                        // プラグイン名
         )
     );
- *
+
  */
 ?>
 <script type="text/javascript">

@@ -1,7 +1,7 @@
 <?php
 class ZipcodeImportShell extends Shell {
 
-    var $tasks = array('GetKenAll', 'Import');
+    var $tasks = array('Zipcode.GetKenAll', 'Zipcode.Import');
 
     var $uses = array();
 

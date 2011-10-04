@@ -1,17 +1,20 @@
 <?php
+App::uses('ZipcodeAppController', 'Zipcode.Controller');
+
 class ApiController extends ZipcodeAppController {
-    var $name = 'Api';
-    var $uses = array('Zipcode.Zipcode');
-    var $helpers = array('Form', 'Html', 'Session', 'Javascript', 'Xml');
+    public $name = 'Api';
+    public $uses = array('Zipcode.Zipcode');
+//    public $helpers = array('Form', 'Html', 'Session', 'Js', 'Xml');
+    public $helpers = array('Form', 'Html', 'Session', 'Js');
 
     /**
      * beforeFilter
      *
      * @access public
      */
-    function  beforeFilter() {
+    public function beforeFilter() {
         parent::beforeFilter();
-        Configure::write('debug', 0);
+        Configure::write('debug', 2);
         $this->autoRender = false;
         $this->layout = 'ajax';
     }
@@ -24,7 +27,7 @@ class ApiController extends ZipcodeAppController {
      * @param <integer> $limit
      * @return <type>
      */
-    function json($zipcode = null, $limit = false) {
+    public function json($zipcode = null, $limit = false) {
         if ( $zipcode === null ) {
             $this->_error();
             return;
@@ -49,7 +52,10 @@ class ApiController extends ZipcodeAppController {
      * @param <integer> $limit
      * @return <type>
      */
-    function xml($zipcode = null, $limit = false) {
+    /**
+     * [@todo] XmlHelperの代替手段が見つからないのでとりあえずコメントアウトします
+     * 
+    public function xml($zipcode = null, $limit = false) {
         if ( $zipcode === null ) {
             $this->_error();
             return;
@@ -72,6 +78,7 @@ class ApiController extends ZipcodeAppController {
         header("Content-type: text/xml");
         $this->render('xml');
     }
+     */
 
     /**
      * ajaxzip3
@@ -79,7 +86,7 @@ class ApiController extends ZipcodeAppController {
      *
      * @param <type> $source
      */
-    function ajaxzip3($source = null) {
+    public function ajaxzip3($source = null) {
         if ( !preg_match('/^zip\-([0-9]{3})\.js$/', $source, $matches) ) {
             $this->_error();
             return;
@@ -128,7 +135,7 @@ class ApiController extends ZipcodeAppController {
      *
      * @access private
      */
-    function _error() {
+    public function _error() {
         $this->cakeError('error404');
     }
 
@@ -137,7 +144,7 @@ class ApiController extends ZipcodeAppController {
      *
      * @access private
      */
-    function _empty() {
+    public function _empty() {
         $this->cakeError('error404');
     }
 

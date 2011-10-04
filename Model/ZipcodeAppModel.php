@@ -1,11 +1,15 @@
 <?php
+App::uses('AppModel', 'Model');
 
 class ZipcodeAppModel extends AppModel {
 
     /**
      * truncate
+     * 
+     * @param type $tableName
+     * @return bool
      */
-    function truncate($tableName = null) {
+    public function truncate($tableName = null) {
         if ( is_null($tableName) ) $tableName = $this->table;
 
         if ( !$tableName || is_null($tableName) ) {
