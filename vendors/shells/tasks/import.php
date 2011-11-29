@@ -34,7 +34,7 @@ class ImportTask extends Shell {
      * @access public
      */
     function execute() {
-        $name = $file = $path = $connection = $plugin = null;
+        $connection = 'default';
         if (!empty($this->params['connection'])) {
             $connection = $this->params['connection'];
         }
