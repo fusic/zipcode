@@ -1,7 +1,12 @@
 <?php
-class ImportTask extends Shell {
+App::import('Model', 'CakeSchema', false);
+App::import('Model', 'AppModel', false);
+App::import('Model', 'Zipcode.ZipcodeAppModel', false);
+App::import('Model', 'Zipcode.Zipcode', false);
+// @todo more better code
+require_once dirname(__FILE__) . '/../../../models/zipcode.php';
 
-    var $uses = array('Zipcode.Zipcode');
+class ImportTask extends Shell {
 
     var $_path = '/tmp/';
 
@@ -29,6 +34,12 @@ class ImportTask extends Shell {
      * @access public
      */
     function execute() {
+        $name = $file = $path = $connection = $plugin = null;
+        if (!empty($this->params['connection'])) {
+            $connection = $this->params['connection'];
+        }
+        App::import('Model', 'Zipcode.Zipcode', false);
+        $this->Zipcode = new Zipcode(array('ds' => $connection));
 
         $csvFile = $this->_path.'ken_all.csv';
 
@@ -117,5 +128,3 @@ class ImportTask extends Shell {
     }
 
 }
-
-?>
