@@ -77,7 +77,7 @@ Zipcode Pluginは大きく分けて2つの使用方法があります。
 Zipcode PluginではAjax等で利用するためのHTTPインターフェースを提供しています。
 
 * JSON (/zipcode/api/json/8120042/)
-* XML (/zipcode/api/xml/8120042/)
+* XML (/zipcode/api/xml/8120042/)（※参照）
 * ajaxzip3 (JSONP) (/zipcode/api/ajaxzip3/zip-812.js)
 
 郵便番号検索のJavaScriptライブラリは [ajaxzip3](http://code.google.com/p/ajaxzip3/) が非常に素晴らしく、基本的にはそれで十分です。
@@ -88,7 +88,9 @@ Zipcode PluginではAjax等で利用するためのHTTPインターフェース�
 
 詳しくは ```views/elements/ajaxzip3.ctp``` を確認してください。
 
-またJSONインターフェースやXMLインターフェースを利用して独自に郵便番号検索機能を実装することも可能です。
+またJSONインターフェースやXMLインターフェース（※参照）を利用して独自に郵便番号検索機能を実装することも可能です。
+
+※XML出力に関してはXmlHelperの代替手段が見つかるまで保留
 
 ### 2.Zipcodeモデルを直接利用する検索 ###
 
@@ -102,6 +104,7 @@ Zipcode::search()を直接利用して前方一致の郵便番号検索ができ
 
 * APIの汎用化(郵便番号以外のデータでも検索できるように変更する予定)
 * cronによる郵便番号データ更新対応
+* Xml出力の対応？
 
 # Contributors #
 
